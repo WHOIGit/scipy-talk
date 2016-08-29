@@ -4,6 +4,8 @@ Vagrant.configure("2") do |config|
     vb.memory="2048"
     vb.cpus="4"
   end
+  config.ssh.forward_agent = true
+  config.ssh.forward_x11 = true
   config.vm.network :forwarded_port, host: 8888, guest: 8888
   config.vm.provision :shell, inline: <<-SHELL
 sudo apt-get update
